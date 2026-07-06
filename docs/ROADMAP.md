@@ -1,0 +1,58 @@
+# Project Roadmap - QuensultingAI Dental Receptionist Voice Agent
+
+This roadmap outlines the complete development cycle of the dental clinic AI Voice Agent, structured in 25 incremental phases.
+
+- `[x]` **Phase 1: Project Foundation & Repository Initialization** (Current)
+  - Initialize workspace directory structures and placeholder files.
+  - Setup core FastAPI structure with `/` and `/health` root endpoints.
+  - Provide base documentation: `README`, `PROJECT_CONTEXT`, `ROADMAP`, `ARCHITECTURE`, `CHANGELOG`, and `LICENSE`.
+- `[ ]` **Phase 2: Configuration & Environment Setup**
+  - Setup dynamic environment variable loading with `pydantic-settings`.
+  - Validate mandatory variables (Port, Email Credentials, Google Sheets Configuration) at application startup.
+- `[ ]` **Phase 3: Core Logging & Error Handling Infrastructure**
+  - Implement structured logging (console and file outputs in `backend/logs`).
+  - Set up global Exception handlers for unified HTTP API error responses.
+- `[ ]` **Phase 4: API Request/Response Schemas & Validation**
+  - Define unified Pydantic schemas for standard request payloads and response envelopes.
+- `[ ]` **Phase 5: API Router & Versioning Architecture**
+  - Set up versioned routers under `/api/v1` for future business logic.
+- `[ ]` **Phase 6: RetellAI Conversation Flow Draft Setup**
+  - Outline and configure the RetellAI conversation schema, nodes, and branches.
+- `[ ]` **Phase 7: RetellAI Webhook Receiver Endpoint**
+  - Create the webhook endpoint to capture real-time status and post-call events from RetellAI.
+- `[ ]` **Phase 8: Webhook Payload Parsing & Validation**
+  - Model the RetellAI post-call and event-trigger payloads using Pydantic.
+- `[ ]` **Phase 9: FAQ Retrieval Service**
+  - Build a modular lookup service to answer clinic FAQs (hours, services, policies).
+- `[ ]` **Phase 10: FAQ Service Integration**
+  - Connect the FAQ retrieval service to the webhook/conversation flow endpoints.
+- `[ ]` **Phase 11: Google Sheets Service Setup**
+  - Integrate Google API credentials and establish the sheets client service.
+- `[ ]` **Phase 12: Google Sheets Data Model & Sheet Schema**
+  - Map internal booking structures to Google Sheets columns.
+- `[ ]` **Phase 13: Google Sheets Append & Log Service**
+  - Write service logic to write/append records to the Google Sheet asynchronously.
+- `[ ]` **Phase 14: Gmail SMTP Service Setup & SMTP Configuration**
+  - Configure secure SMTP connection protocols for transaction mailing.
+- `[ ]` **Phase 15: Email Template Engine & Service Integration**
+  - Implement email templates and write a service to send booking confirmation emails.
+- `[ ]` **Phase 16: Appointment Booking Dialog State Machine**
+  - Establish custom state rules/dialog states to manage appointment progress via Retell.
+- `[ ]` **Phase 17: Booking Service Coordination**
+  - Coordinate validation, booking flow, Sheets persistence, and confirmation emails in a unified workflow.
+- `[ ]` **Phase 18: Fallback Dialog Node & Logic**
+  - Build fallback strategies for unrecognized caller statements or errors.
+- `[ ]` **Phase 19: Interruption & Silence Handling Support**
+  - Ensure the agent handles voice interruptions and caller silences gracefully.
+- `[ ]` **Phase 20: Human Transfer Service**
+  - Implement call transfer trigger logic when escalation to a human operator is requested.
+- `[ ]` **Phase 21: Comprehensive Integration Testing with Mock Webhooks**
+  - Create unit and integration tests mimicking webhook calls and database writes.
+- `[ ]` **Phase 22: Performance Testing & Concurrency Analysis**
+  - Validate response times and throughput under concurrent call simulations.
+- `[ ]` **Phase 23: End-to-End Voice Agent Testing**
+  - Execute live test calls with the Retell voice agent to inspect fluid conversations.
+- `[ ]` **Phase 24: Deployment Documentation & Verification**
+  - Draft guidelines for staging deployment and configuration verification.
+- `[ ]` **Phase 25: Interview Presentation, Final Review, & Project Handover**
+  - Deliver project walkthrough, architecture presentation materials, and complete the handoff.
