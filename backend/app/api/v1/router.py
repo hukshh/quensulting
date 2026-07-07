@@ -2,8 +2,10 @@
 
 from fastapi import APIRouter
 
+from app.api.v1.endpoints.booking import router as booking_router
+
 # Create version 1 router
 api_router = APIRouter()
 
-# Future business logic routes will be registered here, e.g.:
-# api_router.include_router(booking_router, prefix="/bookings", tags=["bookings"])
+# Include booking endpoint router under appointments prefix
+api_router.include_router(booking_router, prefix="/appointments", tags=["Appointments"])
