@@ -5,6 +5,7 @@ import uuid
 from datetime import datetime
 from app.schemas.booking import BookingRequest
 from app.services.google_sheets import google_sheets_service
+from app.services.email import email_service
 
 logger = logging.getLogger("app.services.booking")
 
@@ -80,8 +81,10 @@ class BookingService:
         # ensuring the main booking transaction does not fail.
         google_sheets_service.append_booking(sheet_data)
 
-        # FUTURE PHASES:
-        # - SMTP Email Confirmation: send_email(summary)
+        # Send SMTP Confirmation Email
+        # Exception handling is encapsulated inside the service: it logs and returns False on error,
+        # ensuring the main booking transaction does not fail.
+        email_service.send_booking_confirmation(summary)
 
         logger.info("Appointment successfully booked with ID: %s", booking_id)
 
